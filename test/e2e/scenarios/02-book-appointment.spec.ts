@@ -15,7 +15,7 @@ describe("Book appointment scenario", () => {
   it("should book appointment successfully", async () => {
     const date = "6/26/2023";
     const slotInput: SlotInput = {
-      doctorId: 1,
+      doctorId: 2,
       date: new Date(date),
     };
 
