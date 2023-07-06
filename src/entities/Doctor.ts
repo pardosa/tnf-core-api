@@ -1,5 +1,11 @@
 import { Field, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Appointment } from "./Appointment";
 import { Availability } from "./Availability";
 
@@ -14,9 +20,15 @@ export class Doctor extends BaseEntity {
   @Column()
   name: string;
 
-  @OneToMany(() => Availability, availability => availability.doctor)
-  availability: Availability[];
+  @OneToMany(() => Availability, (availability) => availability.doctor, {
+    nullable: true,
+  })
+  @Field((type) => [Availability], { nullable: true })
+  availability?: Availability[];
 
-  @OneToMany(() => Appointment, appointment => appointment.doctor)
-  appointments: Appointment[];
+  @OneToMany(() => Appointment, (appointment) => appointment.doctor, {
+    nullable: true,
+  })
+  @Field((type) => [Appointment], { nullable: true })
+  appointments?: Appointment[];
 }

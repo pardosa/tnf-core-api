@@ -7,6 +7,9 @@ export class BookAppointmentInput {
   slot: Slot;
 
   @Field()
+  date: Date;
+
+  @Field()
   patientName: string;
 
   @Field()

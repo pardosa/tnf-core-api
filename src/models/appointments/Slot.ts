@@ -1,14 +1,14 @@
 import { Field, InputType, ObjectType } from "type-graphql";
 
-@InputType('slotInput')
+@InputType("SlotArgs")
 @ObjectType()
 export class Slot {
   @Field()
   doctorId: number;
 
   @Field()
-  start: Date;
+  start: string;
 
   @Field()
-  end: Date;
+  end: string;
 }
